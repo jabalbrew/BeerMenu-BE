@@ -6,7 +6,7 @@ export class Beer extends Entity {
     type: 'number',
     id: true,
   })
-  id?: number;
+  id: number;
 
   @property({
     type: 'string',
@@ -25,6 +25,20 @@ export class Beer extends Entity {
   })
   ibu?: number;
 
+  @property({
+    type: 'number',
+  })
+  gravity?: number;
+
+  @property({
+    type: 'number',
+  })
+  color?: number;
+
+  @property({
+    type: 'string',
+  })
+  description?: string;
 
   constructor(data?: Partial<Beer>) {
     super(data);
