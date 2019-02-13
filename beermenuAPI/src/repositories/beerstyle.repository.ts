@@ -1,6 +1,6 @@
 import {DefaultCrudRepository, juggler} from '@loopback/repository';
 import {Beerstyle} from '../models';
-import {MongoDBDataSource} from '../datasources';
+import {BeerStylesDBDataSource} from '../datasources';
 import {inject} from '@loopback/core';
 
 export class BeerstyleRepository extends DefaultCrudRepository<
@@ -8,7 +8,7 @@ export class BeerstyleRepository extends DefaultCrudRepository<
   typeof Beerstyle.prototype.id
 > {
   constructor(
-    @inject('datasources.MongoDB') dataSource: MongoDBDataSource,
+    @inject('datasources.beerStylesDB') dataSource: BeerStylesDBDataSource,
   ) {
     super(Beerstyle, dataSource);
   }

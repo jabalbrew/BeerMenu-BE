@@ -1,1 +1,2 @@
-export * from './dblocal.datasource';
+export * from './mongo-db.datasource';
+export * from './beer-styles-db.datasource';
