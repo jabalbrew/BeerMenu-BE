@@ -41,7 +41,7 @@ export class Beer extends Entity {
   })
   description?: string;
 
-  @belongsTo(() => Beerstyle)
+  @property()
   beerstyleId: number;
 
   constructor(data?: Partial<Beer>) {

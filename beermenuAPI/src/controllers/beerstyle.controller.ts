@@ -16,7 +16,7 @@ import {
   del,
   requestBody,
 } from '@loopback/rest';
-import {Beerstyle, Beer} from '../models';
+import {Beerstyle} from '../models';
 import {BeerstyleRepository} from '../repositories';
 
 export class BeerstyleController {
@@ -94,20 +94,6 @@ export class BeerstyleController {
   })
   async findById(@param.path.number('id') id: number): Promise<Beerstyle> {
     return await this.beerstyleRepository.findById(id);
-  }
-
-  @get('/beerstyles/{id}/beers', {
-    responses: {
-      '200': {
-        description: 'Beerstyle beers model instance',
-        content: {'application/json': {schema: {'x-ts-type': Beerstyle}}},
-      },
-    },
-  })
-  async getBeer(
-      @param.path.number('id') id: typeof Beer.prototype.id,
-    ): Promise<Beer> {
-      return await this.beerstyleRepository.beers(id);
   }
 
   @patch('/beerstyles/{id}', {

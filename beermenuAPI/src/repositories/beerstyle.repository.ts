@@ -14,13 +14,13 @@ export class BeerstyleRepository extends DefaultCrudRepository<
   >;
   constructor(
     @inject('datasources.MongoDB') dataSource: MongoDBDataSource,
-    @repository.getter('BeerRepository')
-    getOrderRepository: Getter<BeerRepository>,
+    @repository.getter(BeerRepository)
+    protected getBeerRepository: Getter<BeerRepository>,
   ) {
     super(Beerstyle, dataSource);
     this.beers = this.createHasManyRepositoryFactoryFor(
       'beers',
-      getOrderRepository,
+      getBeerRepository,
     );
   }
 }

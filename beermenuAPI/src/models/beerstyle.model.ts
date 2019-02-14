@@ -21,7 +21,7 @@ export class Beerstyle extends Entity {
   })
   styleNumber: string;
 
-  @hasMany(() => Beer, {keyTo: 'id'})
+  @hasMany(() => Beer)
   beers?: Beer[];
 
   constructor(data?: Partial<Beerstyle>) {
