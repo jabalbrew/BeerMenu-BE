@@ -1,4 +1,5 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, hasMany} from '@loopback/repository';
+import {Beer} from './beer.model';
 
 @model()
 export class Beerstyle extends Entity {
@@ -19,6 +20,9 @@ export class Beerstyle extends Entity {
     required: true,
   })
   styleNumber: string;
+
+  @hasMany(() => Beer, {keyTo: 'id'})
+  beers?: Beer[];
 
   constructor(data?: Partial<Beerstyle>) {
     super(data);
